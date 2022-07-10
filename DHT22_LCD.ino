@@ -27,8 +27,7 @@ byte Umid[8] = {
 };
 
 
-void setup()
-{
+void setup() {
   lcd.begin();
   lcd.backlight();
   dht.setup(5); //data pin D5
@@ -36,25 +35,26 @@ void setup()
   lcd.createChar(1, Umid);
 }
 
-void loop()
-{
+void loop() {
   float humidity = dht.getHumidity();
   float temperature = dht.getTemperature();
   lcd.setCursor(0, 0);
   lcd.print(char(0));
   lcd.setCursor(2, 0);
-    lcd.print("Temp :");
-      lcd.setCursor(9, 0);
-        lcd.print(temperature);
-          lcd.setCursor(15, 0);
-            lcd.print("C");
+  
+  lcd.print("Temp :");
+  lcd.setCursor(9, 0);
+  lcd.print(temperature);
+  lcd.setCursor(15, 0);
+  lcd.print("C");
 
   lcd.setCursor(0, 1);
   lcd.print(char(1));
-  lcd.setCursor(2, 1);          
-    lcd.print("Umid :");
-      lcd.setCursor(9, 1);
-        lcd.print(humidity);
-          lcd.setCursor(15, 1);
-            lcd.print("%"); 
+  lcd.setCursor(2, 1);
+  
+  lcd.print("Umid :");
+  lcd.setCursor(9, 1);
+  lcd.print(humidity);
+  lcd.setCursor(15, 1);
+  lcd.print("%"); 
 }
